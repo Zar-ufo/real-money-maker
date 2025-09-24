@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rickroll 😏</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Comic Neue", cursive;
+        text-align: center;
+        background: linear-gradient(
+          45deg,
+          #ff6b6b,
+          #4ecdc4,
+          #45b7d1,
+          #96ceb4,
+          #ffeaa7,
+          #dda0dd
+        );
+        background-size: 600% 600%;
+        animation: gradientShift 8s ease infinite;
+        color: white;
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .floating-emoji {
+        position: absolute;
+        font-size: 2em;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.7;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        66% {
+          transform: translateY(10px) rotate(-3deg);
+        }
+      }
+
+      .floating-emoji:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-emoji:nth-child(2) {
+        top: 20%;
+        right: 15%;
+        animation-delay: 1s;
+      }
+      .floating-emoji:nth-child(3) {
+        top: 60%;
+        left: 5%;
+        animation-delay: 2s;
+      }
+      .floating-emoji:nth-child(4) {
+        top: 70%;
+        right: 10%;
+        animation-delay: 3s;
+      }
+      .floating-emoji:nth-child(5) {
+        top: 40%;
+        left: 80%;
+        animation-delay: 4s;
+      }
+      .floating-emoji:nth-child(6) {
+        top: 80%;
+        left: 70%;
+        animation-delay: 5s;
+      }
+
+      .container {
+        position: relative;
+        z-index: 10;
+        padding: 20px;
+      }
+
+      h1 {
+        margin: 30px 0;
+        font-family: "Fredoka One", cursive;
+        font-size: 3.5em;
+        text-shadow: 3px 3px 0px #000, 6px 6px 0px rgba(0, 0, 0, 0.3),
+          0 0 20px rgba(255, 255, 255, 0.5);
+        animation: rainbow 3s linear infinite, bounce 2s ease-in-out infinite;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      h1:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      @keyframes rainbow {
+        0% {
+          color: #ff6b6b;
+        }
+        16% {
+          color: #4ecdc4;
+        }
+        32% {
+          color: #45b7d1;
+        }
+        48% {
+          color: #96ceb4;
+        }
+        64% {
+          color: #ffeaa7;
+        }
+        80% {
+          color: #dda0dd;
+        }
+        100% {
+          color: #ff6b6b;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      #views {
+        margin: 30px 0;
+        font-size: 2.2em;
+        color: #fff;
+        background: linear-gradient(
+          45deg,
+          #ff0080,
+          #ff8000,
+          #ffff00,
+          #00ff80,
+          #0080ff,
+          #8000ff
+        );
+        background-size: 600% 600%;
+        animation: rainbowBg 3s ease infinite,
+          megaPulse 1.5s ease-in-out infinite,
+          viewsGlow 2s ease-in-out infinite alternate;
+        padding: 20px 40px;
+        border-radius: 60px;
+        display: inline-block;
+        border: 4px solid #fff;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+          0 0 60px rgba(255, 0, 128, 0.4),
+          inset 0 0 20px rgba(255, 255, 255, 0.2);
+        font-weight: 900;
+        text-shadow: 2px 2px 4px #000, 0 0 10px #fff, 0 0 20px #ff0080;
+        letter-spacing: 2px;
+        transform: perspective(500px) rotateX(5deg);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #views::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        animation: shine 3s ease infinite;
+        pointer-events: none;
+      }
+
+      @keyframes rainbowBg {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes megaPulse {
+        0%,
+        100% {
+          transform: perspective(500px) rotateX(5deg) scale(1);
+          box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+            0 0 60px rgba(255, 0, 128, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        50% {
+          transform: perspective(500px) rotateX(5deg) scale(1.1);
+          box-shadow: 0 0 50px rgba(255, 255, 255, 0.9),
+            0 0 100px rgba(255, 0, 128, 0.7),
+            inset 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      @keyframes viewsGlow {
+        from {
+          text-shadow: 2px 2px 4px #000, 0 0 10px #fff, 0 0 20px #ff0080;
+        }
+        to {
+          text-shadow: 2px 2px 4px #000, 0 0 20px #fff, 0 0 40px #ff0080,
+            0 0 60px #ff0080;
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+      }
+
+      .video-container {
+        position: relative;
+        display: inline-block;
+        margin: 20px 0;
+      }
+
+      iframe {
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 5px solid #fff;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      iframe:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle 2s linear infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .fun-button {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .fun-button:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .copyright {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 0.9em;
+        border: 2px solid #fff;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        to {
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      .funny-popup {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 50px;
+        margin: 20px 0;
+        display: inline-block;
+        font-size: 1.3em;
+        font-weight: bold;
+        animation: popIn 0.5s ease-out, pulse 2s ease-in-out infinite;
+        border: 3px solid #fff;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0) rotate(180deg);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+      }
+
+      .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #ff6b6b;
+        animation: confettiFall 3s linear infinite;
+        z-index: 1000;
+      }
+
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .rain-emoji {
+        position: absolute;
+        font-size: 2em;
+        animation: emojiRain 3s linear infinite;
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+      @keyframes emojiRain {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .dance-mode * {
+        animation: dance 0.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes dance {
+        0% {
+          transform: rotate(-3deg) scale(0.98);
+        }
+        100% {
+          transform: rotate(3deg) scale(1.02);
+        }
+      }
+
+      .click-ripple {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.6) 0%,
+          transparent 70%
+        );
+        animation: ripple 0.6s ease-out;
+        pointer-events: none;
+        z-index: 1000;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(4);
+          opacity: 0;
+        }
+      }
+
+      .button-container {
+        margin: 30px 0;
+      }
+
+      .fun-button:active {
+        transform: translateY(-2px) scale(0.95);
+      }
+
+      /* Add some extra sparkles to the video */
+      .video-container::before {
+        content: "✨";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        font-size: 2em;
+        animation: sparkle 2s ease-in-out infinite;
+      }
+
+      .video-container::after {
+        content: "⭐";
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        font-size: 2em;
+        animation: sparkle 2s ease-in-out infinite reverse;
+      }
+
+      /* Mobile responsive improvements */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5em;
+          margin: 20px 10px;
+        }
+        iframe {
+          width: 90%;
+          height: 250px;
+        }
+        .floating-emoji {
+          font-size: 1.5em;
+        }
+        .fun-button {
+          padding: 12px 20px;
+          font-size: 1em;
+          margin: 5px;
+        }
+        .copyright {
+          bottom: 10px;
+          padding: 8px 15px;
+          font-size: 0.8em;
+        }
+        .funny-popup {
+          font-size: 1.1em;
+          padding: 10px 20px;
+          margin: 15px 5px;
+        }
+        #views {
+          font-size: 1.8em;
+          padding: 15px 25px;
+          margin: 20px 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2em;
+        }
+        iframe {
+          height: 200px;
+        }
+        .container {
+          padding: 10px;
+        }
+        .fun-button {
+          display: block;
+          width: 80%;
+          margin: 10px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Emojis -->
+    <div class="floating-emoji">🎵</div>
+    <div class="floating-emoji">🕺</div>
+    <div class="floating-emoji">💃</div>
+    <div class="floating-emoji">🎤</div>
+    <div class="floating-emoji">🎶</div>
+    <div class="floating-emoji">😂</div>
+
+    <div class="container">
+      <h1 onclick="makeItRain()" title="Click me for a surprise!">
+        Never Gonna Give You Up 🎶
+      </h1>
+
+      <div class="fun-messages" id="funMessages"></div>
+
+      <!-- Autoplay Rickroll video (NOT muted) -->
+      <div class="video-container">
+        <iframe
+          id="rickroll"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&start=40&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+          title="Rickroll"
+          frameborder="0"
+          allow="autoplay; encrypted-media; fullscreen"
+          allowfullscreen
+          loading="eager"
+        >
+        </iframe>
+        <div class="sparkle" style="top: 10%; left: 10%"></div>
+        <div class="sparkle" style="top: 20%; right: 15%"></div>
+        <div class="sparkle" style="bottom: 10%; left: 20%"></div>
+        <div class="sparkle" style="bottom: 20%; right: 10%"></div>
+      </div>
+
+      <div id="views">Loading views...</div>
+
+      <div class="button-container">
+        <button class="fun-button" onclick="showFunnyMessage()">
+          😄 Get Rickrolled Again!
+        </button>
+        <button class="fun-button" onclick="danceMode()">💃 Dance Mode!</button>
+        <button class="fun-button" onclick="confettiTime()">
+          🎉 Celebrate!
+        </button>
+      </div>
+
+      <div id="confetti-container"></div>
+    </div>
+
+    <!-- Copyright Footer -->
+    <div class="copyright">
+      © 2025 Abdullah Zarif | Never Gonna Give You Up 🎵 | Made with ❤️ and lots
+      of Rick Astley
+    </div>
+
+    <script>
+      const ws = new WebSocket(`ws://${window.location.host}`);
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === "views") {
+          document.getElementById(
+            "views"
+          ).innerText = `🔥 Rickrolled ${data.views} unsuspecting victims! 🔥`;
+        }
+      };
+
+      // Tell server "I'm watching"
+      ws.onopen = () => {
+        ws.send(JSON.stringify({ type: "add-view" }));
+      };
+
+      // Funny messages array
+      const funnyMessages = [
+        "🎵 You just got RICKROLLED! 🎵",
+        "😂 Another one bites the dust!",
+        "🕺 Rick Astley approves this message!",
+        "💃 Dance like nobody's watching (but Rick is)!",
+        "🎤 Never gonna run around and desert you!",
+        "😎 You've been officially rickrolled, my friend!",
+        "🎶 Welcome to the Rick Zone!",
+        "🤣 Gotcha! Rick strikes again!",
+        "🎸 You're now part of the Rick Army!",
+        "⭐ Congratulations! You're victim #" +
+          Math.floor(Math.random() * 9999),
+      ];
+
+      // Show random funny message
+      function showFunnyMessage() {
+        const message =
+          funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+        const messageDiv = document.getElementById("funMessages");
+        messageDiv.innerHTML = `<div class="funny-popup">${message}</div>`;
+
+        setTimeout(() => {
+          messageDiv.innerHTML = "";
+        }, 3000);
+      }
+
+      // Confetti effect
+      function confettiTime() {
+        const container = document.getElementById("confetti-container");
+        container.innerHTML = "";
+
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti-piece";
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.animationDelay = Math.random() * 3 + "s";
+          confetti.style.backgroundColor = getRandomColor();
+          container.appendChild(confetti);
+        }
+
+        setTimeout(() => {
+          container.innerHTML = "";
+        }, 4000);
+      }
+
+      // Dance mode - make everything wiggle
+      function danceMode() {
+        document.body.classList.add("dance-mode");
+        showFunnyMessage();
+
+        setTimeout(() => {
+          document.body.classList.remove("dance-mode");
+        }, 5000);
+      }
+
+      // Make it rain emojis
+      function makeItRain() {
+        const emojis = [
+          "🎵",
+          "🎶",
+          "🎤",
+          "🕺",
+          "💃",
+          "😂",
+          "🎸",
+          "⭐",
+          "🔥",
+          "💯",
+        ];
+
+        for (let i = 0; i < 20; i++) {
+          const emoji = document.createElement("div");
+          emoji.className = "rain-emoji";
+          emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          emoji.style.left = Math.random() * 100 + "%";
+          emoji.style.animationDelay = Math.random() * 2 + "s";
+          document.body.appendChild(emoji);
+
+          setTimeout(() => {
+            if (emoji.parentNode) {
+              emoji.parentNode.removeChild(emoji);
+            }
+          }, 3000);
+        }
+
+        showFunnyMessage();
+      }
+
+      function getRandomColor() {
+        const colors = [
+          "#ff6b6b",
+          "#4ecdc4",
+          "#45b7d1",
+          "#96ceb4",
+          "#ffeaa7",
+          "#dda0dd",
+          "#ff9ff3",
+          "#54a0ff",
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      // Enhanced autoplay functionality
+      function ensureAutoplay() {
+        const iframe = document.getElementById("rickroll");
+
+        // Try to reload the iframe with autoplay after a short delay
+        setTimeout(() => {
+          const currentSrc = iframe.src;
+          if (!currentSrc.includes("&played=1")) {
+            iframe.src = currentSrc + "&played=1";
+          }
+        }, 1000);
+
+        // Add click-to-play fallback
+        iframe.addEventListener("click", () => {
+          const newSrc = iframe.src.replace("&mute=0", "&mute=0&autoplay=1");
+          iframe.src = newSrc;
+        });
+      }
+
+      // Add some dynamic effects on load
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          showFunnyMessage();
+        }, 2000);
+
+        // Ensure autoplay works
+        ensureAutoplay();
+
+        // Make views counter more attention-grabbing
+        const viewsElement = document.getElementById("views");
+        setInterval(() => {
+          viewsElement.style.transform =
+            "perspective(500px) rotateX(5deg) scale(1.05)";
+          setTimeout(() => {
+            viewsElement.style.transform =
+              "perspective(500px) rotateX(5deg) scale(1)";
+          }, 200);
+        }, 3000);
+      });
+
+      // Add click sound effect (visual feedback since we can't play audio without user interaction)
+      document.addEventListener("click", (e) => {
+        if (
+          e.target.classList.contains("fun-button") ||
+          e.target.tagName === "H1"
+        ) {
+          const ripple = document.createElement("div");
+          ripple.className = "click-ripple";
+          ripple.style.left = e.clientX + "px";
+          ripple.style.top = e.clientY + "px";
+          document.body.appendChild(ripple);
+
+          setTimeout(() => {
+            if (ripple.parentNode) {
+              ripple.parentNode.removeChild(ripple);
+            }
+          }, 600);
+        }
+      });
+    </script>
+  </body>
+</html>
